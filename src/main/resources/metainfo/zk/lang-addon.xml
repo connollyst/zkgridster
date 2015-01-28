@@ -3,8 +3,6 @@
     <depends>zul</depends>
     <language-name>xul/html</language-name>
 
-    <javascript src="https://www.google.com/jsapi"/>
-
     <version>
         <version-class>org.zkoss.gridster.Version</version-class>
         <version-uid>0.1</version-uid>
