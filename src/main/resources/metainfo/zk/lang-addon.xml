@@ -27,6 +27,7 @@
         <mold>
             <mold-name>default</mold-name>
             <mold-uri>mold/griditem.js</mold-uri>
+            <css-uri>jquery.gridster.min.css</css-uri>
         </mold>
     </component>
 

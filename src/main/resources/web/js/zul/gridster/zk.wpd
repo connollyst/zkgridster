@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="zul.gridster" language="xul/html">
+    <script src="jquery.gridster.min.js"/>
     <widget name="Gridster"/>
     <widget name="GridItem"/>
 </package>

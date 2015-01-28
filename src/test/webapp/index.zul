@@ -1,8 +1,8 @@
 <window>
     <label value="cool!"/>
     <gridster>
-        <griditem/>
-        <griditem/>
-        <griditem/>
+        <griditem row="1" col="1" sizex="1" sizey="1"/>
+        <griditem row="1" col="2" sizex="1" sizey="1"/>
+        <griditem row="2" col="1" sizex="2" sizey="1"/>
     </gridster>
 </window>
