@@ -1,0 +1,8 @@
+<window>
+    <label value="cool!"/>
+    <gridster>
+        <griditem/>
+        <griditem/>
+        <griditem/>
+    </gridster>
+</window>
