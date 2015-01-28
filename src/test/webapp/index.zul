@@ -1,8 +1,5 @@
-<window>
-    <label value="cool!"/>
-    <gridster>
-        <griditem row="1" col="1" sizex="1" sizey="1"/>
-        <griditem row="1" col="2" sizex="1" sizey="1"/>
-        <griditem row="2" col="1" sizex="2" sizey="1"/>
-    </gridster>
-</window>
+<gridster sclass="gridster" style="background-color:grey">
+    <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:red"/>
+    <griditem row="1" col="2" sizex="1" sizey="1" style="background-color:green"/>
+    <griditem row="2" col="1" sizex="2" sizey="1" style="background-color:blue"/>
+</gridster>
