@@ -4,8 +4,11 @@
         <button label="Add Small Item" onClick="@command('addSmallItem')"/>
         <button label="Add Large Item" onClick="@command('addLargeItem')"/>
         <label value="Modified From Server:"/>
-        <gridster id="dynamicGridster" maxCols="10" widgetBaseWidth="100" widgetBaseHeight="100"
-                  style="background-color:grey">
+        <gridster id="dynamicGridster"
+                  maxCols="5"
+                  widgetBaseWidth="100"
+                  widgetBaseHeight="100"
+                  style="border:1px solid lightgrey; border-radius: 3px; background-color:gainsboro;">
             <griditem row="1" col="1" sizeX="2" sizeY="1" style="background-color: #588C73">
                 <label value="One"/>
             </griditem>

@@ -5,21 +5,28 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             if (n)
                 n.gridster = g;
         },
-        widgetBaseDimensions: [
-            function (data) {
-                return data; // TODO this shouldn't be necessary!?
-            },
-            function () {
-                if (this.desktop) this.rerender();
-            }
-        ]
-
+        widgetMargins: null,
+        widgetBaseDimensions: null,
+        extraRows: null,
+        extraCols: null,
+        minRows: null,
+        minCols: null,
+        maxCols: null,
+        maxSizeX: null
     },
     bind_: function () {
         this.$supers(zul.gridster.Gridster, 'bind_', arguments);
-        var g = $('#' + this.uuid + ' ul').gridster({
-            widget_base_dimensions: this.getWidgetBaseDimensions()
-        }).data('gridster');
+        var config = {
+            widget_margins: this._widgetMargins,
+            widget_base_dimensions: this._widgetBaseDimensions,
+            extra_rows: this._extraRows,
+            extra_cols: this._extraCols,
+            min_rows: this._minRows,
+            min_cols: this._minCols,
+            max_cols: this._maxCols,
+            max_size_x: this._maxSizeX
+        };
+        var g = $('#' + this.uuid + ' ul').gridster(config).data('gridster');
         this.setGridster(g);
     },
     insertChildHTML_: function (child, before, desktop) {
