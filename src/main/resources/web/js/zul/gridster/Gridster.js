@@ -16,6 +16,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
     },
     bind_: function () {
         this.$supers(zul.gridster.Gridster, 'bind_', arguments);
+        var widget = this;
         var config = {
             widget_margins: this._widgetMargins,
             widget_base_dimensions: this._widgetBaseDimensions,
@@ -24,11 +25,35 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             min_rows: this._minRows,
             min_cols: this._minCols,
             max_cols: this._maxCols,
-            max_size_x: this._maxSizeX
+            max_size_x: this._maxSizeX,
+            draggable: {
+                start: function () {
+                    widget.fire('onDragStart')
+                },
+                drag: function () {
+                    widget.fire('onDrag')
+                },
+                stop: function () {
+                    widget.fire('onDragStop')
+                }
+            },
+            resize: {
+                start: function () {
+                    widget.fire('onResizeStart')
+                },
+                resize: function () {
+                    widget.fire('onResize')
+                },
+                stop: function () {
+                    widget.fire('onResizeStop')
+                }
+            }
         };
         var g = $('#' + this.uuid + ' ul').gridster(config).data('gridster');
         this.setGridster(g);
-    },
+
+    }
+    ,
     insertChildHTML_: function (child, before, desktop) {
         var ben, html = child.redrawHTML_();
         var sizex = child._sizex,
@@ -38,10 +63,12 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         this._gridster.add_widget(html, sizex, sizey, col, row);
         // TODO support 'before'
         child.bind(desktop);
-    },
+    }
+    ,
     removeChildHTML_: function (child, ignoreDom) {
         this._gridster.remove_widget(child);
-    },
+    }
+    ,
     domClass_: function (no) {
         var classes = this.$supers("domClass_", no) || '';
         if (classes) {
@@ -50,4 +77,5 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         classes += 'gridster';
         return classes.trim();
     }
-});
+})
+;

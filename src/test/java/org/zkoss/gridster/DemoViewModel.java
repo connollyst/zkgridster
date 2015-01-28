@@ -35,6 +35,10 @@ public class DemoViewModel {
 	@AfterCompose
 	public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
 		Selectors.wireComponents(view, this, false);
+		PrintEventListener printer = new PrintEventListener();
+		dynamicGridster.addEventListener(GridsterEvents.ON_DRAG_START, printer);
+		dynamicGridster.addEventListener(GridsterEvents.ON_DRAG, printer);
+		dynamicGridster.addEventListener(GridsterEvents.ON_DRAG_STOP, printer);
 	}
 
 	@Command
@@ -83,6 +87,14 @@ public class DemoViewModel {
 		@Override
 		public void onEvent(Event event) throws Exception {
 			item.detach();
+		}
+	}
+
+	private static final class PrintEventListener implements EventListener<Event> {
+
+		@Override
+		public void onEvent(Event event) throws Exception {
+			System.out.println(event.getName());
 		}
 	}
 }

@@ -1,5 +1,6 @@
 package org.zkoss.gridster;
 
+import org.zkoss.zk.ui.sys.ComponentCtrl;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 import org.zkoss.zul.impl.XulElement;
 
@@ -11,6 +12,15 @@ import java.io.IOException;
  * @author Sean Connolly
  */
 public class Gridster extends XulElement {
+
+	static {
+		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG_START, ComponentCtrl.CE_IMPORTANT);
+		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG, ComponentCtrl.CE_IMPORTANT);
+		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG_STOP, ComponentCtrl.CE_IMPORTANT);
+		addClientEvent(Gridster.class, GridsterEvents.ON_RESIZE_START, ComponentCtrl.CE_IMPORTANT);
+		addClientEvent(Gridster.class, GridsterEvents.ON_RESIZE, ComponentCtrl.CE_IMPORTANT);
+		addClientEvent(Gridster.class, GridsterEvents.ON_RESIZE_STOP, ComponentCtrl.CE_IMPORTANT);
+	}
 
 	private final int[] widgetMargins = new int[] { 10, 10 };
 	private final int[] widgetBaseDimensions = new int[] { 140, 140 };
