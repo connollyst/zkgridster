@@ -39,16 +39,6 @@
         </license>
     </licenses>
 
-    <properties>
-        <zk.version>7.0.3</zk.version>
-        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
-        <jackson.version>2.5.0</jackson.version>
-        <servlet.api.version>2.4</servlet.api.version>
-        <junit.version>4.10</junit.version>
-        <assertj.version>1.7.1</assertj.version>
-        <guava.version>18.0</guava.version>
-    </properties>
 
     <distributionManagement>
         <snapshotRepository>
@@ -67,6 +57,13 @@
         </repository>
     </distributionManagement>
 
+    <properties>
+        <zk.version>7.0.3</zk.version>
+        <servlet.api.version>2.4</servlet.api.version>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+        <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
@@ -82,28 +79,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>${servlet.api.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-            <version>1.2.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
