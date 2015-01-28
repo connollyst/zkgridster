@@ -1,28 +1,43 @@
 <window id="win" apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.zkoss.gridster.DemoViewModel')">
-    <vlayout>
-        <button label="Add Small Item" onClick="@command('addSmallItem')"/>
-        <button label="Add Large Item" onClick="@command('addLargeItem')"/>
-        <label value="Modified From Server:"/>
+    <vlayout style="width: 960px; margin: 20px auto;">
+        <hlayout>
+            <button label="Add Small Item" onClick="@command('addSmallItem')" height="32px"/>
+            <button label="Add Large Item" onClick="@command('addLargeItem')" height="32px"/>
+        </hlayout>
         <gridster id="dynamicGridster"
-                  maxCols="5"
+                  maxCols="8"
                   widgetBaseWidth="100"
                   widgetBaseHeight="100"
-                  style="border:1px solid lightgrey; border-radius: 3px; background-color:gainsboro;">
+                  widgetMarginVertical="10"
+                  widgetMarginHorizontal="10"
+                  style="border-radius:3px; background-color:gainsboro;">
             <griditem row="1" col="1" sizeX="2" sizeY="1" style="background-color: #588C73">
                 <label value="One"/>
             </griditem>
-            <griditem row="1" col="1" sizeX="1" sizeY="3" style="background-color: #F2E394">
+            <griditem row="1" col="3" sizeX="1" sizeY="3" style="background-color: #F2E394">
                 <label value="Two"/>
             </griditem>
-            <griditem row="1" col="1" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+            <griditem row="1" col="4" sizeX="1" sizeY="1" style="background-color: #F2AE72">
                 <label value="Three"/>
             </griditem>
-            <griditem row="1" col="1" sizeX="2" sizeY="2" style="background-color: #D96459">
+            <griditem row="2" col="1" sizeX="2" sizeY="2" style="background-color: #D96459">
                 <label value="Four"/>
             </griditem>
-            <griditem row="1" col="1" sizeX="3" sizeY="3" style="background-color: #8C4646">
+            <griditem row="1" col="6" sizeX="3" sizeY="3" style="background-color: #8C4646">
                 <label value="Five"/>
+            </griditem>
+            <griditem row="12" col="3" sizeX="8" sizeY="3" style="background-color: #588C73">
+                <label value="Six"/>
+            </griditem>
+            <griditem row="1" col="5" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+                <label value="Seven"/>
+            </griditem>
+            <griditem row="2" col="5" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+                <label value="Eight"/>
+            </griditem>
+            <griditem row="2" col="4" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+                <label value="Nine"/>
             </griditem>
         </gridster>
     </vlayout>

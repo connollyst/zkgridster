@@ -16,12 +16,15 @@ import org.zkoss.zul.Window;
 import java.util.Random;
 
 /**
+ * View-Model for the demo of {@link Gridster} in action.
+ *
  * @author Sean Connolly
  */
 public class DemoViewModel {
 
 	// https://kuler.adobe.com/Campfire-color-theme-2528696
 	private static final String[] CAMPFIRE = new String[] { "#588C73", "#F2E394", "#F2AE72", "#D96459", "#8C4646" };
+
 	private final Random random = new Random();
 
 	@Wire("#win")
@@ -36,19 +39,15 @@ public class DemoViewModel {
 
 	@Command
 	public void addSmallItem() {
-		addItem(randomSmallSize(), randomSmallSize());
-	}
-
-	private int randomSmallSize() {
-		return random.nextInt(1) + 1;
+		addItem(1, 1);
 	}
 
 	@Command
 	public void addLargeItem() {
-		addItem(randomLargeSize(), randomLargeSize());
+		addItem(randomSize(), randomSize());
 	}
 
-	private int randomLargeSize() {
+	private int randomSize() {
 		return random.nextInt(3) + 1;
 	}
 
