@@ -1,5 +1,15 @@
-<gridster sclass="gridster" style="background-color:grey">
-    <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:red"/>
-    <griditem row="1" col="2" sizex="1" sizey="1" style="background-color:green"/>
-    <griditem row="2" col="1" sizex="2" sizey="1" style="background-color:blue"/>
-</gridster>
+<window id="win" apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.zkoss.gridster.DemoViewModel')">
+    <vlayout>
+        <gridster style="background-color:grey">
+            <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:red"/>
+            <griditem row="1" col="2" sizex="1" sizey="1" style="background-color:green"/>
+            <griditem row="2" col="1" sizex="2" sizey="1" style="background-color:blue"/>
+        </gridster>
+        <label value="Dynamically Adding:"/>
+        <gridster id="dynamicGridster" style="background-color:grey">
+            <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:orange"/>
+        </gridster>
+        <button label="Add Item" onClick="@command('addGriditem')"/>
+    </vlayout>
+</window>

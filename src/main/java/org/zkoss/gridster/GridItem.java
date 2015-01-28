@@ -17,10 +17,6 @@ public class GridItem extends XulElement {
 	private int sizeX = 1;
 	private int sizeY = 1;
 
-	public GridItem() {
-		System.out.println("Creating a GridItem!");
-	}
-
 	public int getRow() {
 		return row;
 	}

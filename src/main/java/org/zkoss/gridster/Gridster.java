@@ -9,8 +9,4 @@ import org.zkoss.zul.impl.XulElement;
  */
 public class Gridster extends XulElement {
 
-	public Gridster() {
-		System.out.println("Creating a Gridster!");
-	}
-
 }
