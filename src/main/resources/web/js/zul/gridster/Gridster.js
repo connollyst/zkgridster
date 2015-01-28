@@ -15,6 +15,9 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         this.$supers(zul.gridster.Gridster, 'insertChildHTML_', arguments);
         this.getGridster().add_widget(child);
     },
+    removeChildHTML_: function (child, ignoreDom) {
+        this.getGridster().remove_widget(child);
+    },
     domClass_: function (no) {
         var classes = this.$supers("domClass_", no) || '';
         if (classes) {
