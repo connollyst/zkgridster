@@ -1,9 +1,9 @@
 package org.zkoss.gridster;
 
-import java.io.IOException;
-
 import org.zkoss.zk.ui.sys.ContentRenderer;
 import org.zkoss.zul.impl.XulElement;
+
+import java.io.IOException;
 
 /**
  * An item in a {@link Gridster}.
@@ -34,44 +34,35 @@ public class GridItem extends XulElement {
 	}
 
 	public void setRow(int row) {
-		if (this.row != row) {
+		if(this.row != row) {
 			this.row = row;
 			smartUpdate("row", row);
 		}
 	}
 
 	public void setCol(int col) {
-		if (this.col != col) {
+		if(this.col != col) {
 			this.col = col;
 			smartUpdate("col", col);
 		}
 	}
 
-	public void setSizex(int sizeX) {
-		setSizeX(sizeX);
-	}
-
 	public void setSizeX(int sizeX) {
-		if (this.sizeX != sizeX) {
+		if(this.sizeX != sizeX) {
 			this.sizeX = sizeX;
 			smartUpdate("sizeX", sizeX);
 		}
 	}
 
-	public void setSizey(int sizeY) {
-		setSizeY(sizeY);
-	}
-
 	public void setSizeY(int sizeY) {
-		if (this.sizeY != sizeY) {
+		if(this.sizeY != sizeY) {
 			this.sizeY = sizeY;
 			smartUpdate("sizeY", sizeY);
 		}
 	}
 
 	@Override
-	protected void renderProperties(ContentRenderer renderer)
-			throws IOException {
+	protected void renderProperties(ContentRenderer renderer) throws IOException {
 		super.renderProperties(renderer);
 		render(renderer, "row", row);
 		render(renderer, "col", col);

@@ -1,15 +1,26 @@
 <window id="win" apply="org.zkoss.bind.BindComposer"
         viewModel="@id('vm') @init('org.zkoss.gridster.DemoViewModel')">
     <vlayout>
-        <gridster style="background-color:grey">
-            <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:red"/>
-            <griditem row="1" col="2" sizex="1" sizey="1" style="background-color:green"/>
-            <griditem row="2" col="1" sizex="2" sizey="1" style="background-color:blue"/>
+        <button label="Add Small Item" onClick="@command('addSmallItem')"/>
+        <button label="Add Large Item" onClick="@command('addLargeItem')"/>
+        <label value="Modified From Server:"/>
+        <gridster id="dynamicGridster" maxCols="10" widgetBaseWidth="100" widgetBaseHeight="100"
+                  style="background-color:grey">
+            <griditem row="1" col="1" sizeX="2" sizeY="1" style="background-color: #588C73">
+                <label value="One"/>
+            </griditem>
+            <griditem row="1" col="1" sizeX="1" sizeY="3" style="background-color: #F2E394">
+                <label value="Two"/>
+            </griditem>
+            <griditem row="1" col="1" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+                <label value="Three"/>
+            </griditem>
+            <griditem row="1" col="1" sizeX="2" sizeY="2" style="background-color: #D96459">
+                <label value="Four"/>
+            </griditem>
+            <griditem row="1" col="1" sizeX="3" sizeY="3" style="background-color: #8C4646">
+                <label value="Five"/>
+            </griditem>
         </gridster>
-        <label value="Dynamically Adding:"/>
-        <gridster id="dynamicGridster" style="background-color:grey">
-            <griditem row="1" col="1" sizex="1" sizey="1" style="background-color:orange"/>
-        </gridster>
-        <button label="Add Item" onClick="@command('addGriditem')"/>
     </vlayout>
 </window>
