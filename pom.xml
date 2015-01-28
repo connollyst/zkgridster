@@ -4,7 +4,7 @@
 
     <groupId>org.zkoss</groupId>
     <artifactId>zkgridster</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.1</version>
 
     <name>ZK Gridster</name>
     <description>ZK wrapper for gridster.js</description>
@@ -18,7 +18,7 @@
         <developerConnection>
             scm:git:git@github.com:connollyst/zkgridster.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>zkgridster-0.1.1</tag>
     </scm>
 
     <developers>
