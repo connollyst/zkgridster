@@ -1,0 +1,1 @@
+zul.gridster.Gridster = zk.$extends(zk.Widget, {});
