@@ -76,6 +76,11 @@ public class DemoViewModel {
 		return CAMPFIRE[random.nextInt(5)];
 	}
 
+	@Command
+	public void reinitialize() {
+		dynamicGridster.invalidate();
+	}
+
 	private static final class CloseItemEventListener implements EventListener<Event> {
 
 		private final GridItem item;

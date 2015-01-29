@@ -1,5 +1,6 @@
 package org.zkoss.gridster;
 
+import org.zkoss.zk.ui.UiException;
 import org.zkoss.zk.ui.sys.ComponentCtrl;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 import org.zkoss.zul.impl.XulElement;
@@ -33,6 +34,10 @@ public class Gridster extends XulElement {
 
 	private Integer maxCols = null;
 	private Integer maxSizeX = null;
+
+	private boolean resizeEnabled = false;
+	private String resizeAxes = "both";
+	private final int[] resizeMaxSize = new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE };
 
 	public int[] getWidgetMargins() {
 		return widgetMargins;
@@ -80,6 +85,26 @@ public class Gridster extends XulElement {
 
 	public Integer getMaxSizeX() {
 		return maxSizeX;
+	}
+
+	public boolean isResizeEnabled() {
+		return resizeEnabled;
+	}
+
+	public String getResizeAxes() {
+		return resizeAxes;
+	}
+
+	public int[] getResizeMaxSize() {
+		return resizeMaxSize;
+	}
+
+	public int getResizeMaxCols() {
+		return resizeMaxSize[0];
+	}
+
+	public int getResizeMaxRows() {
+		return resizeMaxSize[1];
 	}
 
 	public void setWidgetMargins(int horizontalMargin, int verticalMargin) {
@@ -156,6 +181,45 @@ public class Gridster extends XulElement {
 		}
 	}
 
+	public void setResizeEnabled(boolean resizeEnabled) {
+		if(this.resizeEnabled != resizeEnabled) {
+			this.resizeEnabled = resizeEnabled;
+			smartUpdate("resizeEnabled", resizeEnabled);
+		}
+	}
+
+	public void setResizeAxes(String resizeAxes) {
+		if(resizeAxes == null) {
+			throw new UiException("Resize axes cannot be null");
+		}
+		if(!"x".equals(resizeAxes) && !"y".equals(resizeAxes) && !"both".equals(resizeAxes)) {
+			throw new UiException("Invalid resize axes, expected 'x', 'y' or 'both': " + resizeAxes);
+		}
+		if(!this.resizeAxes.equals(resizeAxes)) {
+			this.resizeAxes = resizeAxes;
+			smartUpdate("resizeAxes", resizeAxes);
+		}
+	}
+
+	public void setResizeMaxSize(int resizeMaxCols, int resizeMaxRows) {
+		setResizeMaxCols(resizeMaxCols);
+		setResizeMaxRows(resizeMaxRows);
+	}
+
+	public void setResizeMaxCols(int resizeMaxCols) {
+		if(resizeMaxSize[0] != resizeMaxCols) {
+			resizeMaxSize[0] = resizeMaxCols;
+			smartUpdate("resizeMaxSize", resizeMaxSize);
+		}
+	}
+
+	public void setResizeMaxRows(int resizeMaxRows) {
+		if(resizeMaxSize[1] != resizeMaxRows) {
+			resizeMaxSize[1] = resizeMaxRows;
+			smartUpdate("resizeMaxSize", resizeMaxSize);
+		}
+	}
+
 	@Override
 	protected void renderProperties(ContentRenderer renderer) throws IOException {
 		super.renderProperties(renderer);
@@ -167,6 +231,9 @@ public class Gridster extends XulElement {
 		render(renderer, "minCols", minCols);
 		render(renderer, "maxCols", maxCols);
 		render(renderer, "maxSizeX", maxSizeX);
+		render(renderer, "resizeEnabled", resizeEnabled);
+		render(renderer, "resizeAxes", resizeAxes);
+		render(renderer, "resizeMaxSize", resizeMaxSize);
 	}
 
 }

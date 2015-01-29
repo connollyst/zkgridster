@@ -12,7 +12,9 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         minRows: null,
         minCols: null,
         maxCols: null,
-        maxSizeX: null
+        maxSizeX: null,
+        resizeEnabled: null,
+        resizeAxes: null
     },
     bind_: function () {
         this.$supers(zul.gridster.Gridster, 'bind_', arguments);
@@ -24,7 +26,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             extra_cols: this._extraCols,
             min_rows: this._minRows,
             min_cols: this._minCols,
-            max_cols: this._maxCols,
+            max_cols: this._maxSizeX,
             max_size_x: this._maxSizeX,
             draggable: {
                 start: function () {
@@ -38,6 +40,8 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 }
             },
             resize: {
+                enabled: this._resizeEnabled,
+                axes: [this._resizeAxes],
                 start: function () {
                     widget.fire('onResizeStart')
                 },
@@ -49,9 +53,11 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 }
             }
         };
-        var g = $('#' + this.uuid + ' ul').gridster(config).data('gridster');
-        this.setGridster(g);
-
+        this.setGridster(
+            $('#' + this.uuid + ' ul')
+                .gridster(config)
+                .data('gridster')
+        );
     }
     ,
     insertChildHTML_: function (child, before, desktop) {
@@ -77,5 +83,4 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         classes += 'gridster';
         return classes.trim();
     }
-})
-;
+});
