@@ -10,28 +10,52 @@ zul.gridster.GridItem = zk.$extends(zk.Widget, {
             if (n)
                 n.col = c;
         },
-        sizex: function (x) {
+        sizeX: function (x) {
             var n = this.$n();
             if (n)
-                n.sizex = x;
+                n.sizeX = x;
         },
-        sizey: function (y) {
+        sizeY: function (y) {
             var n = this.$n();
             if (n)
-                n.sizey = y;
+                n.sizeY = y;
+        },
+        maxSizeX: function (x) {
+            var n = this.$n();
+            if (n)
+                n.maxSizeX = x;
+        },
+        maxSizeY: function (y) {
+            var n = this.$n();
+            if (n)
+                n.maxSizeY = y;
+        },
+        minSizeX: function (x) {
+            var n = this.$n();
+            if (n)
+                n.minSizeX = x;
+        },
+        minSizeY: function (y) {
+            var n = this.$n();
+            if (n)
+                n.minSizeY = y;
         }
     },
     //super//
     domAttrs_: function (no) {
-        var row = this._row,
-            col = this._col,
-            sizex = this._sizex,
-            sizey = this._sizey,
-            attr = this.$supers('domAttrs_', arguments);
-        return attr
-            + ' data-row="' + row + '"'
-            + ' data-col="' + col + '"'
-            + ' data-sizex="' + sizex + '"'
-            + ' data-sizey="' + sizey + '"';
+        var attr = this.$supers('domAttrs_', arguments),
+            row = 'data-row="' + this._row + '"',
+            col = 'data-col="' + this._col + '"',
+            sizeX = 'data-sizex="' + this._sizeX + '"',
+            sizeY = 'data-sizey="' + this._sizeY + '"',
+            maxSizeX = this._maxSizeX && 'data-max-sizex="' + this._maxSizeX + '"',
+            maxSizeY = this._maxSizeY && 'data-max-sizey="' + this._maxSizeY + '"',
+            minSizeX = this._minSizeX && 'data-min-sizex="' + this._minSizeX + '"',
+            minSizeY = this._minSizeY && 'data-min-sizey="' + this._minSizeY + '"';
+        var domAttr = [attr, row, col, sizeX, sizeY, maxSizeX, maxSizeY, minSizeX, minSizeY].filter(function (val) {
+            return val;
+        }).join(' ');
+        console.log(domAttr);
+        return domAttr;
     }
 });

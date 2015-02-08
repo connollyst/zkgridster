@@ -23,7 +23,8 @@
             <griditem row="1" col="3" sizeX="1" sizeY="3" style="background-color: #F2E394">
                 <label value="Two"/>
             </griditem>
-            <griditem row="1" col="4" sizeX="1" sizeY="1" style="background-color: #F2AE72">
+            <griditem row="1" col="4" sizeX="1" sizeY="1" style="background-color: #F2AE72"
+                      maxSizeX="3" maxSizeY="3" minSizeX="1" minSizeY="1">
                 <label value="Three"/>
             </griditem>
             <griditem row="1" col="1" sizeX="2" sizeY="2" style="background-color: #D96459">
