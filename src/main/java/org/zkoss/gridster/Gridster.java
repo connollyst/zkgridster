@@ -1,11 +1,17 @@
 package org.zkoss.gridster;
 
+import org.zkoss.json.JSONObject;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.UiException;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.sys.ComponentCtrl;
 import org.zkoss.zk.ui.sys.ContentRenderer;
 import org.zkoss.zul.impl.XulElement;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A <a href="http://gridster.net/">gridster.js</a> component.
@@ -40,6 +46,86 @@ public class Gridster extends XulElement {
 	private String resizeAxes = "both";
 	private final Integer[] resizeMaxSize = new Integer[] { null, null };
 	private final Integer[] resizeMinSize = new Integer[] { null, null };
+
+	public Gridster() {
+		addEventListener(0, GridsterEvents.ON_CHANGE, new EventListener<Event>() {
+
+			@Override
+			public void onEvent(Event event) {
+				Object[] data = (Object[])event.getData();
+				for(Object state : data) {
+					saveGridItemState((JSONObject)state);
+				}
+			}
+		});
+	}
+
+	/**
+	 * Save the {@link GridItem} state returned from the client. Note that adjusting the state of one item often affects
+	 * many, as such it is the gridster's responsibility to notify all items.
+	 * 
+	 * @param state the state of a grid item
+	 */
+	private void saveGridItemState(JSONObject state) {
+		String uuid = state.get("uuid").toString();
+		String row = state.get("row").toString();
+		String col = state.get("col").toString();
+		String sizeX = state.get("size_x").toString();
+		String sizeY = state.get("size_y").toString();
+		GridItem item = getGridItem(uuid);
+		item.setRow(Integer.valueOf(row));
+		item.setCol(Integer.valueOf(col));
+		item.setSizeX(Integer.valueOf(sizeX));
+		item.setSizeY(Integer.valueOf(sizeY));
+	}
+
+	/**
+	 * Get the {@link GridItem} component in the grid with the specified {@code uuid}.
+	 * 
+	 * @param uuid the UUID of the item (assigned by ZK when bound to the Desktop)
+	 * @return the grid item for the UUID
+	 * @throws IllegalStateException if no grid item was found with the id
+	 */
+	private GridItem getGridItem(String uuid) {
+		for(GridItem item : getGridItems()) {
+			if(uuid.equals(item.getUuid())) {
+				return item;
+			}
+		}
+		throw new IllegalStateException("Cannot find GridItem '" + uuid + "'.");
+	}
+
+	/**
+	 * Get all {@link GridItem} components in the grid.
+	 * 
+	 * @return the grid items
+	 * @throws IllegalStateException if one or more child is not a grid item
+	 */
+	public List<GridItem> getGridItems() {
+		List<GridItem> items = new ArrayList<GridItem>();
+		for(Component child : getChildren()) {
+			if(child instanceof GridItem) {
+				items.add((GridItem)child);
+			} else {
+				throw new IllegalStateException("Invalid child for Gridster, expected GridItem but found "
+						+ child.getClass().getSimpleName());
+			}
+		}
+		return items;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean insertBefore(Component newChild, Component refChild) {
+		if(newChild instanceof GridItem) {
+			return super.insertBefore(newChild, refChild);
+		} else {
+			throw new IllegalArgumentException("Invalid child for Gridster, expected GridItem but got "
+					+ newChild.getClass().getSimpleName());
+		}
+	}
 
 	public int[] getWidgetMargins() {
 		return widgetMargins;

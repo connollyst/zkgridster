@@ -39,7 +39,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 },
                 stop: function () {
                     widget.fire('onDragStop');
-                    widget.fire('onChange');
+                    widget.fire('onChange', widget._gridster.serialize());
                 }
             },
             resize: {
@@ -55,8 +55,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 },
                 stop: function () {
                     widget.fire('onResizeStop');
-                    widget.fire('onChange');
-                    console.log(widget._gridster.serialize());
+                    widget.fire('onChange', widget._gridster.serialize());
                 }
             },
             serialize_params: this.serializeParams
@@ -64,14 +63,15 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         this.setGridster(
             $('#' + this.uuid + ' ul').gridster(config).data('gridster')
         );
+        this.fire('onChange', this._gridster.serialize());
     },
     serializeParams: function (w, wgd) {
         return {
-            id: w.context.id,
             col: wgd.col,
             row: wgd.row,
             size_x: wgd.size_x,
-            size_y: wgd.size_y
+            size_y: wgd.size_y,
+            uuid: w.context.id
         }
     },
     insertChildHTML_: function (child, before, desktop) {

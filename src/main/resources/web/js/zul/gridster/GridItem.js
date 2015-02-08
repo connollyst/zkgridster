@@ -52,10 +52,8 @@ zul.gridster.GridItem = zk.$extends(zk.Widget, {
             maxSizeY = this._maxSizeY && 'data-max-sizey="' + this._maxSizeY + '"',
             minSizeX = this._minSizeX && 'data-min-sizex="' + this._minSizeX + '"',
             minSizeY = this._minSizeY && 'data-min-sizey="' + this._minSizeY + '"';
-        var domAttr = [attr, row, col, sizeX, sizeY, maxSizeX, maxSizeY, minSizeX, minSizeY].filter(function (val) {
+        return [attr, row, col, sizeX, sizeY, maxSizeX, maxSizeY, minSizeX, minSizeY].filter(function (val) {
             return val;
         }).join(' ');
-        console.log(domAttr);
-        return domAttr;
     }
 });
