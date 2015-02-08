@@ -1,9 +1,16 @@
 package org.zkoss.gridster;
 
 /**
+ * Events fired by Gridster component.
+ * 
  * @author Sean Connolly
  */
 public class GridsterEvents {
+
+	/**
+	 * Event fired when anything changes, order or size.
+	 */
+	public static final String ON_CHANGE = "onChange";
 
 	/**
 	 * Event fired when dragging starts.

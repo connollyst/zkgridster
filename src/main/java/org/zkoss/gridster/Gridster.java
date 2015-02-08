@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Gridster extends XulElement {
 
 	static {
+		addClientEvent(Gridster.class, GridsterEvents.ON_CHANGE, ComponentCtrl.CE_DUPLICATE_IGNORE);
 		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG_START, ComponentCtrl.CE_IMPORTANT);
 		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG, ComponentCtrl.CE_IMPORTANT);
 		addClientEvent(Gridster.class, GridsterEvents.ON_DRAG_STOP, ComponentCtrl.CE_IMPORTANT);

@@ -32,13 +32,14 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             max_size_x: this._maxSizeX,
             draggable: {
                 start: function () {
-                    widget.fire('onDragStart')
+                    widget.fire('onDragStart');
                 },
                 drag: function () {
-                    widget.fire('onDrag')
+                    widget.fire('onDrag');
                 },
                 stop: function () {
-                    widget.fire('onDragStop')
+                    widget.fire('onDragStop');
+                    widget.fire('onChange');
                 }
             },
             resize: {
@@ -47,13 +48,14 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 max_size: this._resizeMaxSize,
                 min_size: this._resizeMinSize,
                 start: function () {
-                    widget.fire('onResizeStart')
+                    widget.fire('onResizeStart');
                 },
                 resize: function () {
-                    widget.fire('onResize')
+                    widget.fire('onResize');
                 },
                 stop: function () {
-                    widget.fire('onResizeStop')
+                    widget.fire('onResizeStop');
+                    widget.fire('onChange');
                 }
             }
         };
