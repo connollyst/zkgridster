@@ -37,7 +37,8 @@ public class Gridster extends XulElement {
 
 	private boolean resizeEnabled = false;
 	private String resizeAxes = "both";
-	private final int[] resizeMaxSize = new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE };
+	private final Integer[] resizeMaxSize = new Integer[] { null, null };
+	private final Integer[] resizeMinSize = new Integer[] { null, null };
 
 	public int[] getWidgetMargins() {
 		return widgetMargins;
@@ -95,16 +96,28 @@ public class Gridster extends XulElement {
 		return resizeAxes;
 	}
 
-	public int[] getResizeMaxSize() {
+	public Integer[] getResizeMaxSize() {
 		return resizeMaxSize;
 	}
 
-	public int getResizeMaxCols() {
+	public Integer getResizeMaxCols() {
 		return resizeMaxSize[0];
 	}
 
-	public int getResizeMaxRows() {
+	public Integer getResizeMaxRows() {
 		return resizeMaxSize[1];
+	}
+
+	public Integer[] getResizeMinSize() {
+		return resizeMinSize;
+	}
+
+	public Integer getResizeMinCols() {
+		return resizeMinSize[0];
+	}
+
+	public Integer getResizeMinRows() {
+		return resizeMinSize[1];
 	}
 
 	public void setWidgetMargins(int horizontalMargin, int verticalMargin) {
@@ -207,16 +220,35 @@ public class Gridster extends XulElement {
 	}
 
 	public void setResizeMaxCols(int resizeMaxCols) {
-		if(resizeMaxSize[0] != resizeMaxCols) {
+		if(resizeMaxSize[0] == null || resizeMaxSize[0] != resizeMaxCols) {
 			resizeMaxSize[0] = resizeMaxCols;
 			smartUpdate("resizeMaxSize", resizeMaxSize);
 		}
 	}
 
 	public void setResizeMaxRows(int resizeMaxRows) {
-		if(resizeMaxSize[1] != resizeMaxRows) {
+		if(resizeMaxSize[1] == null || resizeMaxSize[1] != resizeMaxRows) {
 			resizeMaxSize[1] = resizeMaxRows;
 			smartUpdate("resizeMaxSize", resizeMaxSize);
+		}
+	}
+
+	public void setResizeMinSize(int resizeMinCols, int resizeMinRows) {
+		setResizeMinCols(resizeMinCols);
+		setResizeMinRows(resizeMinRows);
+	}
+
+	public void setResizeMinCols(int resizeMinCols) {
+		if(resizeMinSize[0] == null || resizeMinSize[0] != resizeMinCols) {
+			resizeMinSize[0] = resizeMinCols;
+			smartUpdate("resizeMinSize", resizeMinSize);
+		}
+	}
+
+	public void setResizeMinRows(int resizeMinRows) {
+		if(resizeMinSize[1] == null || resizeMinSize[1] != resizeMinRows) {
+			resizeMinSize[1] = resizeMinRows;
+			smartUpdate("resizeMinSize", resizeMinSize);
 		}
 	}
 
@@ -234,6 +266,7 @@ public class Gridster extends XulElement {
 		render(renderer, "resizeEnabled", resizeEnabled);
 		render(renderer, "resizeAxes", resizeAxes);
 		render(renderer, "resizeMaxSize", resizeMaxSize);
+		render(renderer, "resizeMinSize", resizeMinSize);
 	}
 
 }

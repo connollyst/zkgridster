@@ -12,6 +12,10 @@
                   widgetMarginVertical="10"
                   widgetMarginHorizontal="10"
                   resizeEnabled="true"
+                  resizeMaxCols="5"
+                  resizeMaxRows="3"
+                  resizeMinCols="2"
+                  resizeMinRows="2"
                   style="border-radius:3px; background-color:gainsboro;">
             <griditem row="1" col="1" sizeX="2" sizeY="1" style="background-color: #588C73">
                 <label value="One"/>

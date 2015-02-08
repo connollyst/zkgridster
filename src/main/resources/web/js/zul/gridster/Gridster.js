@@ -14,7 +14,9 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         maxCols: null,
         maxSizeX: null,
         resizeEnabled: null,
-        resizeAxes: null
+        resizeAxes: null,
+        resizeMaxSize: null,
+        resizeMinSize: null
     },
     bind_: function () {
         this.$supers(zul.gridster.Gridster, 'bind_', arguments);
@@ -42,6 +44,8 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             resize: {
                 enabled: this._resizeEnabled,
                 axes: [this._resizeAxes],
+                max_size: this._resizeMaxSize,
+                min_size: this._resizeMinSize,
                 start: function () {
                     widget.fire('onResizeStart')
                 },
@@ -53,6 +57,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
                 }
             }
         };
+        console.log(config);
         this.setGridster(
             $('#' + this.uuid + ' ul')
                 .gridster(config)
