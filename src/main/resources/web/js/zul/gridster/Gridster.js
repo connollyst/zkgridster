@@ -61,7 +61,7 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
             serialize_params: this.serializeParams
         };
         this.setGridster(
-            $('#' + this.uuid + ' ul').gridster(config).data('gridster')
+            $('#' + this.uuid + ' > ul').gridster(config).data('gridster')
         );
         this.fire('onChange', this._gridster.serialize());
     },
