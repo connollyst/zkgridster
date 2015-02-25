@@ -161,3 +161,13 @@ Note that no data is passed for any event other than ``onChange``, where the dat
 ## Requirements
 
 zkgridster requires a minimum of __Java 7__ and __ZK 7.0.3__
+
+## License
+
+Both zkgridster and gridster.js are distributed under the MIT license.
+
+## Credit
+
+gridster.js is build by [Ducksboard](http://ducksboard.com/) with the help of all these [wonderful people](https://github.com/ducksboard/gridster.js/graphs/contributors).
+
+zkgridster is written by [Sean Connolly](https://github.com/connollyst).
