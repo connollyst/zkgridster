@@ -3,7 +3,7 @@ ZK wrapper for [gridster.js](http://gridster.net/), a jQuery plugin that makes b
 
 ## Download
 
-### Maven
+#### Maven
 
     <dependency>
     	<groupId>org.zkoss</groupId>
@@ -11,9 +11,17 @@ ZK wrapper for [gridster.js](http://gridster.net/), a jQuery plugin that makes b
     	<version>0.1.4</version>
     </dependency>
 
-### Gradle
+#### Gradle
 
     runtime group: 'org.zkoss', name: 'zkgridster', version: '0.1.4'
+
+## Demo
+
+A small demo app is included to showcase functionality and use. To run the demo with Maven, start Jetty:
+
+    mvn jetty:run
+    
+and navigate to [http://localhost:8080/zkgridster/](http://localhost:8080/zkgridster/)
 
 ## Quick Start
 
@@ -47,14 +55,6 @@ All features are supported in both ZUL and Java. The two following code snippets
     item2.setSizeY(2);
     item2.appendChild(new Label("World!"));
     item2.setParent(gridster);
-    
-## Demo
-
-A small demo app is included to showcase functionality and use. To run the demo with Maven, start Jetty:
-
-    mvn jetty:run
-    
-and navigate to [http://localhost:8080/zkgridster/](http://localhost:8080/zkgridster/)
 
 ## Advanced Examples
 
