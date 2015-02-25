@@ -1,5 +1,5 @@
 # zkgridster
-ZK wrapper for [gridster.js](http://gridster.net/)
+ZK wrapper for [gridster.js](http://gridster.net/), a jQuery plugin that makes building intuitive draggable layouts from elements spanning multiple columns.
 
 ## Download
 
