@@ -8,7 +8,7 @@ ZK wrapper for [gridster.js](http://gridster.net/), a jQuery plugin that makes b
     <dependency>
     	<groupId>org.zkoss</groupId>
     	<artifactId>zkgridster</artifactId>
-    	<version>0.1.4</version>
+    	<version>0.1.5</version>
     </dependency>
 
 #### Gradle
