@@ -56,6 +56,7 @@
     </distributionManagement>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <zk.version>7.0.3</zk.version>
         <servlet.api.version>2.4</servlet.api.version>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
