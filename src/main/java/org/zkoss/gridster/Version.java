@@ -1,7 +1,7 @@
 package org.zkoss.gridster;
 
 /**
- * The version of the language addon.<br/>
+ * The version of the language addon.<br>
  * The value of {@code UID} here must match that in {@code lang-addon.xml}.
  *
  * @author Sean Connolly
