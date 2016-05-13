@@ -12,12 +12,8 @@
 
     <scm>
         <url>https://github.com/connollyst/zkgridster</url>
-        <connection>
-            scm:git:git://github.com/connollyst/zkgridster.git
-        </connection>
-        <developerConnection>
-            scm:git:git@github.com:connollyst/zkgridster.git
-        </developerConnection>
+        <connection>scm:git:git://github.com/connollyst/zkgridster.git</connection>
+        <developerConnection>scm:git:git@github.com:connollyst/zkgridster.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
