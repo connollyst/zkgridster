@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  * @author Sean Connolly
  */
-public class GridItem extends XulElement {
+public class GridItem extends XulElement implements Comparable<GridItem> {
 
     private Integer row = null;
     private Integer col = null;
@@ -120,6 +120,27 @@ public class GridItem extends XulElement {
         render(renderer, "maxSizeY", maxSizeY);
         render(renderer, "minSizeX", minSizeX);
         render(renderer, "minSizeY", minSizeY);
+    }
+
+    @Override
+    public int compareTo(GridItem that) {
+        if (this.row == null && that.row == null) {
+            return 0;
+        }
+        if (this.row == null || that.row == null) {
+            return (this.row == null) ? -1 : 1;
+        }
+        int order = Integer.compare(this.row, that.row);
+        if (order != 0) {
+            return order;
+        }
+        if (this.col == null && that.col == null) {
+            return 0;
+        }
+        if (this.col == null || that.col == null) {
+            return (this.col == null) ? -1 : 1;
+        }
+        return Integer.compare(this.col, that.col);
     }
 
 }
