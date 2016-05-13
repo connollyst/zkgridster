@@ -11,6 +11,8 @@ import org.zkoss.zul.impl.XulElement;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -112,6 +114,16 @@ public class Gridster extends XulElement {
                         + child.getClass().getSimpleName());
             }
         }
+        Collections.sort(items, new Comparator<GridItem>() {
+            @Override
+            public int compare(GridItem a, GridItem b) {
+                int order = Integer.compare(a.getRow(), b.getRow());
+                if (order == 0) {
+                    order = Integer.compare(a.getCol(), b.getCol());
+                }
+                return order;
+            }
+        });
         return items;
     }
 
