@@ -59,17 +59,11 @@ public class DemoViewModel {
         GridItem item = new GridItem();
         item.setSizeX(sizeX);
         item.setSizeY(sizeY);
-        item.setRow(randomPosition());
-        item.setCol(randomPosition());
         item.setStyle("background-color: " + randomColor());
         Button closeButton = new Button("Remove");
         closeButton.addEventListener(Events.ON_CLICK, new CloseItemEventListener(item));
         item.appendChild(closeButton);
         dynamicGridster.appendChild(item);
-    }
-
-    private int randomPosition() {
-        return random.nextInt(5) + 1;
     }
 
     private String randomColor() {
@@ -91,6 +85,7 @@ public class DemoViewModel {
 
         @Override
         public void onEvent(Event event) throws Exception {
+            System.out.println("Removing item at [" + item.getRow() + "," + item.getCol() + "]");
             item.detach();
         }
     }

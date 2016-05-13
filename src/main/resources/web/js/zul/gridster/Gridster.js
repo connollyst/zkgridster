@@ -83,10 +83,12 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
         this._gridster.add_widget(html, sizex, sizey, col, row);
         // TODO support 'before'
         child.bind(desktop);
+        this.fire('onChange', this._gridster.serialize());
     }
     ,
     removeChildHTML_: function (child, ignoreDom) {
         this._gridster.remove_widget(child);
+        this.fire('onChange', this._gridster.serialize());
     }
     ,
     domClass_: function (no) {

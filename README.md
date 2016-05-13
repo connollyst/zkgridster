@@ -146,7 +146,7 @@ Note that no data is passed for any event other than ``onChange``, where the dat
     	public void onEvent(Event event) {
     		Gridster gridster = (Gridster) event.getTarget();
     		for(GridItem item : gridster.getGridItems()) {
-      		    // item values reflect already recent client side changes:
+      		    // item values already reflect recent client side changes:
     		    System.out.println(item.getUuid() + ": " +
     		    		" row=" + item.getRow()
     		    		" col=" + item.getCol()

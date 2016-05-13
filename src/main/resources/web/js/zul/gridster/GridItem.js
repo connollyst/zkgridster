@@ -44,10 +44,10 @@ zul.gridster.GridItem = zk.$extends(zk.Widget, {
     //super//
     domAttrs_: function (no) {
         var attr = this.$supers('domAttrs_', arguments),
-            row = 'data-row="' + this._row + '"',
-            col = 'data-col="' + this._col + '"',
-            sizeX = 'data-sizex="' + this._sizeX + '"',
-            sizeY = 'data-sizey="' + this._sizeY + '"',
+            row = this._row && 'data-row="' + this._row + '"',
+            col = this._col && 'data-col="' + this._col + '"',
+            sizeX = this._sizeX && 'data-sizex="' + this._sizeX + '"',
+            sizeY = this._sizeX && 'data-sizey="' + this._sizeY + '"',
             maxSizeX = this._maxSizeX && 'data-max-sizex="' + this._maxSizeX + '"',
             maxSizeY = this._maxSizeY && 'data-max-sizey="' + this._maxSizeY + '"',
             minSizeX = this._minSizeX && 'data-min-sizex="' + this._minSizeX + '"',
