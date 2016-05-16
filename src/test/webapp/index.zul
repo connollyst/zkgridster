@@ -6,7 +6,7 @@
             <button label="Add Large Item" onClick="@command('addLargeItem')" height="32px"/>
             <button label="Reinitialize" onClick="@command('reinitialize')" height="32px"/>
         </hlayout>
-        <gridster id="dynamicGridster"
+        <gridster id="gridster"
                   widgetBaseWidth="100"
                   widgetBaseHeight="100"
                   widgetMarginVertical="10"

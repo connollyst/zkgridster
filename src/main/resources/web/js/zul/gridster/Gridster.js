@@ -76,21 +76,19 @@ zul.gridster.Gridster = zk.$extends(zk.Widget, {
     },
     insertChildHTML_: function (child, before, desktop) {
         var ben, html = child.redrawHTML_();
-        var sizex = child._sizex,
-            sizey = child._sizey,
+        var sizex = child._sizeX,
+            sizey = child._sizeY,
             col = child._col,
             row = child._row;
         this._gridster.add_widget(html, sizex, sizey, col, row);
         // TODO support 'before'
         child.bind(desktop);
         this.fire('onChange', this._gridster.serialize());
-    }
-    ,
+    },
     removeChildHTML_: function (child, ignoreDom) {
         this._gridster.remove_widget(child);
         this.fire('onChange', this._gridster.serialize());
-    }
-    ,
+    },
     domClass_: function (no) {
         var classes = this.$supers("domClass_", no) || '';
         if (classes) {

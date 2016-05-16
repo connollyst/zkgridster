@@ -1,0 +1,13 @@
+<window id="win" apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('org.zkoss.gridster.JavaDemoViewModel')">
+    <vlayout style="min-width: 960px; margin: 20px auto;">
+        <hlayout>
+            <button label="Add Small Item" onClick="@command('addSmallItem')" height="32px"/>
+            <button label="Add Large Item" onClick="@command('addLargeItem')" height="32px"/>
+            <button label="Reinitialize" onClick="@command('reinitialize')" height="32px"/>
+        </hlayout>
+        <div id="wrapper">
+            <!-- The Java view model will add the Gridster here. -->
+        </div>
+    </vlayout>
+</window>
